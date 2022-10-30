@@ -1,0 +1,90 @@
+ A directory is a container that is used to contain folders and files. It organizes files and folders in a hierarchical manner. 
+
+
+
+There are several logical structures of a directory, these are given below.  
+
+Single-level directory – 
+The single-level directory is the simplest directory structure. In it, all files are contained in the same directory which makes it easy to support and understand. 
+A single level directory has a significant limitation, however, when the number of files increases or when the system has more than one user. Since all the files are in the same directory, they must have a unique name. if two users call their dataset test, then the unique name rule violated.
+
+
+
+
+Advantages: 
+
+Since it is a single directory, so its implementation is very easy.
+If the files are smaller in size, searching will become faster.
+The operations like file creation, searching, deletion, updating are very easy in such a directory structure.
+Disadvantages:
+
+There may chance of name collision because two files can have the same name.
+Searching will become time taking if the directory is large.
+This can not group the same type of files together.
+Two-level directory – 
+As we have seen, a single level directory often leads to confusion of files names among different users. the solution to this problem is to create a separate directory for each user. 
+In the two-level directory structure, each user has their own user files directory (UFD). The UFDs have similar structures, but each lists only the files of a single user. system’s master file directory (MFD) is searches whenever a new user id=s logged in. The MFD is indexed by username or account number, and each entry points to the UFD for that user.
+
+
+
+Advantages: 
+
+We can give full path like /User-name/directory-name/.
+Different users can have the same directory as well as the file name.
+Searching of files becomes easier due to pathname and user-grouping.
+Disadvantages:
+
+A user is not allowed to share files with other users.
+Still, it not very scalable, two files of the same type cannot be grouped together in the same user. 
+ 
+Tree-structured directory – 
+Once we have seen a two-level directory as a tree of height 2, the natural generalization is to extend the directory structure to a tree of arbitrary height. 
+This generalization allows the user to create their own subdirectories and to organize their files accordingly.
+
+
+A tree structure is the most common directory structure. The tree has a root directory, and every file in the system has a unique path. 
+
+Advantages: 
+
+Very general, since full pathname can be given.
+Very scalable, the probability of name collision is less.
+Searching becomes very easy, we can use both absolute paths as well as relative.
+Disadvantages: 
+
+Every file does not fit into the hierarchical model, files may be saved into multiple directories.
+We can not share files.
+It is inefficient, because accessing a file may go under multiple directories. 
+ 
+Acyclic graph directory – 
+An acyclic graph is a graph with no cycle and allows us to share subdirectories and files. The same file or subdirectories may be in two different directories. It is a natural generalization of the tree-structured directory. 
+It is used in the situation like when two programmers are working on a joint project and they need to access files. The associated files are stored in a subdirectory, separating them from other projects and files of other programmers since they are working on a joint project so they want the subdirectories to be into their own directories. The common subdirectories should be shared. So here we use Acyclic directories. 
+
+It is the point to note that the shared file is not the same as the copy file. If any programmer makes some changes in the subdirectory it will reflect in both subdirectories.
+
+
+
+Advantages: 
+
+We can share files.
+Searching is easy due to different-different paths.
+Disadvantages:
+
+We share the files via linking, in case deleting it may create the problem,
+If the link is a soft link then after deleting the file we left with a dangling pointer.
+In the case of a hard link, to delete a file we have to delete all the references associated with it. 
+ 
+General graph directory structure – 
+In general graph directory structure, cycles are allowed within a directory structure where multiple directories can be derived from more than one parent directory. 
+The main problem with this kind of directory structure is to calculate the total size or space that has been taken by the files and directories. 
+ 
+
+
+Advantages: 
+
+It allows cycles.
+It is more flexible than other directories structure.
+Disadvantages:
+
+It is more costly than others.
+It needs garbage collection. 
+ 
